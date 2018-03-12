@@ -5,10 +5,8 @@
     {
         $userID = $_POST["userID"];
         $password = $_POST["password"];
-
     
         $query = "SELECT id,password FROM hacking WHERE id='$userID' AND password='$password'";
-
         
         $result = mysqli_query($conn, $query);
         if(mysqli_num_rows($result) === 1)
@@ -50,7 +48,6 @@
         <style>
             @import url('https://fonts.googleapis.com/css?family=Nunito');
             @import url('https://fonts.googleapis.com/css?family=Poiret+One');
-
             body,
             html {
                 height: 100%;
@@ -297,7 +294,6 @@ function () {
                         },
                         "retina_detect": true
                     });
-
                 });
         </script>
     <?php } else {

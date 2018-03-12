@@ -1,6 +1,4 @@
-<?php
-    session_start();
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +24,12 @@ body {
     font-family: 'Goudy Bookletter 1911';
     background-color: #222;
 }
+
 div {
     text-align: center;
     margin: 0px;
 }
+
 h1 {
     font-size: 64px;
     text-align: center;
@@ -37,6 +37,7 @@ h1 {
     padding: .5em;
     margin: 0;
 }
+
 h2 {
     font-size: 24px;
     text-align: center;
@@ -50,20 +51,25 @@ h2 {
     font-weight: 300;
     margin: 0;
 }
+
 a {
 	color: #aaaaaa;
 	text-decoration: none;
 }
+
 a:hover {
 	color: white;
 }
+
     </style>
     <script>
     var node = document.querySelector('h2');
 var text = new T(node);
+
 function random(min, max) {
     return (Math.random() * (max - min)) + min;
 }
+
 text.chars.map(function(v, i){
     TweenMax.from(v, 2.5, {
         opacity: 0,
@@ -75,40 +81,33 @@ text.chars.map(function(v, i){
         yoyo: true
     });
 });
+
     </script>
 </head>
 <body>
   <?php
     include ('db_info.php');
-     
-	$info = $_SESSION['user_session'];
-
-	if( $info != "admin") {
-        $sql ="SELECT * FROM hacking where id='$info'";
+        $info = $_SESSION["user_session"];
+        $sql ="SELECT id FROM hacking";
         $res_data = mysqli_query($conn,$sql);
         
+    ?> <h1>Hello ARGOS World!</h1>
+    <?php
     while( $row = mysqli_fetch_array($res_data)) {
     ?>
-  <br><br><br><br><br>
-    <h1>Hello ARGOS World!</h1>
-    <p>Your Phone number is <?php echo $row["phone"];?></p>
-    <p>Your Birth-day is <?php echo $row["birth"];?></p>
-    <p>Your Student number is <?php echo $row["stuNum"];?></p>
-    <p>Your E-mail is <?php echo $row["email"];?></p>
-    <p>You say <?php echo $row["intro"];?></p>
-    <h2>Your name is <?php echo $row["name"];?></h2>
+  <br>
     
+    <p><?php echo $row["id"];?></p>
+    
+    
+
+    <?php } ?>
     <br><br><br><br><br><br>
     <div style="text-align: center;">
     <span class="glyphicon glyphicon-log-out" style="color:white; "></span>
                 <a href="./logout.php" style="color:white; text-decoration:none">
                     로그인 화면으로</a>
-    <?php }}
-	else {
-		include './adminPage.php';
-	}
-?>
-	</div>
+    </div>
     <div>
     </div>
     <script src="https://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -159,9 +158,11 @@ text.chars.map(function(v, i){
 })(window);</script><script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
 <script >var node = document.querySelector('h2');
 var text = new T(node);
+
 function random(min, max) {
     return (Math.random() * (max - min)) + min;
 }
+
 text.chars.map(function(v, i){
     TweenMax.from(v, 2.5, {
         opacity: 0,
@@ -173,6 +174,7 @@ text.chars.map(function(v, i){
         yoyo: true
     });
 });
+
 //# sourceURL=pen.js
 </script>
 </html>

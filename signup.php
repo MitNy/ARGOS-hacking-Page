@@ -10,10 +10,9 @@
         $userBirth = $_POST["userBirth"];
         $userStuNum = $_POST["userStuNum"];
         $userEmail = $_POST["userEmail"];
-        
+	$userIntro = $_POST["userIntro"];        
     
-        $sql = "INSERT INTO hacking (id,password,name,phone,birth,stuNum,email) VALUES ('$userID','$password','$userName','$userPhone','$userBirth','$userStuNum','$userEmail')";
-
+        $sql = "INSERT INTO hacking (id,password,name,phone,birth,stuNum,email,intro) VALUES ('$userID','$password','$userName','$userPhone','$userBirth','$userStuNum','$userEmail','$userIntro')";
          if(mysqli_query($conn,$sql)){
              echo "<script>alert('회원가입에 성공했습니다.');history.go(-1);</script>";
              header("location:./login");
@@ -21,7 +20,6 @@
         else{
             echo "<script>alert('회원가입에 실패했습니다.');history.go(-1);</script>";
         }
-
     }
     mysqli_close($conn);
 ?>
@@ -54,7 +52,6 @@
         <style>
             @import url('https://fonts.googleapis.com/css?family=Nunito');
             @import url('https://fonts.googleapis.com/css?family=Poiret+One');
-
             body,
             html {
                 height: 100%;
@@ -176,7 +173,7 @@
                             type="text"
                             name="userBirth"
                             id="userBirth"
-                            placeholder="생일"
+                            placeholder="생일(ex:1997-03-14)"
                             class="form-control"/>
                         <input
                             type="text"
@@ -189,6 +186,12 @@
                             name="userEmail"
                             id="userEmail"
                             placeholder="이메일"
+                            class="form-control"/>
+                        <input
+                            type="text"
+                            name="userIntro"
+                            id="userIntro"
+                            placeholder="한줄 소개"
                             class="form-control"/>
                         <input
                             type="submit"
@@ -330,7 +333,6 @@ function () {
                         },
                         "retina_detect": true
                     });
-
                 });
         </script>
     </body>
